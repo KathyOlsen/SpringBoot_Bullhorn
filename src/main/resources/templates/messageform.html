@@ -13,7 +13,7 @@
 <div class="container">
     <div class="jumbotron">
         <h1>Message Form</h1>
-        <form action="#" th:action="@{/process}" th:object="${message}" method="post">
+        <form action="#" th:action="@{/add}" th:object="${message}" method="post" enctype="multipart/form-data">
             Content :<textarea rows="6" th:field="*{content}" />
             <span th:if="${#fields.hasErrors('content')}"
                   th:errors="*{'content'}"></span><br />
@@ -23,7 +23,8 @@
             Sent By :<input type="text" th:field="*{sentby}" />
             <span th:if="${#fields.hasErrors('sentby')}"
                   th:errors="*{'sentby'}"></span><br />
-            <br />
+            <input type="file" name="file" />
+            <br /><br />
             <input type="submit" value="Submit" />
         </form>
     </div>
